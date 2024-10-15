@@ -1,0 +1,20 @@
+draw_wavelength1=0;
+draw_wavelength2=1;
+if(draw_wavelength1==1){
+#three images for wavelength1; split out wavelength
+image(DC_length_ratio,parameter_thick,coupling_efficiency(1,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength1*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(1)*1e9)));
+image(DC_length_ratio,parameter_thick,coupling_efficiency(2,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength1*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(2)*1e9)));
+image(DC_length_ratio,parameter_thick,coupling_efficiency(3,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength1*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(3)*1e9)));
+}
+if(draw_wavelength2==1){
+#three images for wavelength2; keep propogate wavelength
+image(DC_length_ratio,parameter_thick,1-leakage(1,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength2*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(1)*1e9)));
+image(DC_length_ratio,parameter_thick,1-leakage(2,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength2*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(2)*1e9)));
+image(DC_length_ratio,parameter_thick,1-leakage(3,:,:),
+"DC_length_ratio","thickness","Coupling efficiency for wl="+num2str(round(wavelength2*1e9))+"nm"+"_CD shift_"+num2str(round(parameter_cd(3)*1e9)));
+}
